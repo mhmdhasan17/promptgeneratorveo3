@@ -274,35 +274,35 @@ function addCharacter(data = {}) {
             <button class="remove-char-btn">Hapus</button>
         </div>
         <div class="input-group">
-            <label>Pilih Tipe Karakter (untuk ide)</label>
+            <label>3.1 Pilih Tipe Karakter (untuk ide)</label>
             <select class="char-type-select">
                 ${Object.entries(charTypes).map(([value, text]) => `<option value="${value}">${text}</option>`).join('')}
             </select>
         </div>
         <div class="input-group">
-            <label>Deskripsi Karakter</label>
+            <label>3.2 Deskripsi Karakter</label>
             <textarea class="char-desc" rows="8">${data.desc || ''}</textarea>
         </div>
         <div class="input-group">
-            <label>Detail Suara</label>
+            <label>3.3 Detail Suara</label>
             <textarea class="char-voice" rows="6">${data.voice || ''}</textarea>
         </div>
         <div class="input-group">
-            <label>Aksi</label>
+            <label>3.4 Aksi</label>
             <textarea class="char-action" rows="2">${data.action || ''}</textarea>
         </div>
         <div class="input-group">
-            <label>Ekspresi</label>
+            <label>3.5 Ekspresi</label>
             <textarea class="char-expr" rows="2">${data.expr || ''}</textarea>
         </div>
         <div class="input-group">
-            <label>Pilih Tujuan Dialog (untuk ide)</label>
+            <label>3.6 Pilih Tujuan Dialog (untuk ide)</label>
             <select class="char-dialog-type-select">
                  ${Object.entries(dialogTypes).map(([value, text]) => `<option value="${value}">${text}</option>`).join('')}
             </select>
         </div>
         <div class="input-group">
-            <label>Dialog</label>
+            <label>3.7 Dialog</label>
             <textarea class="char-dialog" rows="3">${data.dialog || ''}</textarea>
         </div>
     `;
