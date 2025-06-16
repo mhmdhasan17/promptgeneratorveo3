@@ -108,7 +108,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('generate-btn').addEventListener('click', generatePrompt);
     document.getElementById('change-title-btn').addEventListener('click', changeTitle);
     document.getElementById('change-style-btn').addEventListener('click', changeStyle);
+    document.getElementById('reset-btn').addEventListener('click', resetForm);
 });
+
+function resetForm() {
+    const formElements = document.querySelectorAll('.form-container input, .form-container textarea, .form-container select');
+    formElements.forEach(el => {
+        if (el.tagName === 'SELECT') {
+            el.selectedIndex = 0; // Reset select to the first option
+        } else {
+            el.value = ''; // Clear value for inputs and textareas
+        }
+    });
+
+    // Also clear the output boxes
+    document.getElementById('output-id').value = '';
+    document.getElementById('output-en').innerHTML = '';
+
+    // Restore default camera selection
+    document.getElementById('kamera').value = "Tracking Shot (Bidikan Mengikuti)";
+}
 
 function generatePrompt() {
     // Gather values
