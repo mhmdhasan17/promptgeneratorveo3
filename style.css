@@ -68,6 +68,16 @@ h1, h2 {
     color: var(--primary-color);
 }
 
+#reset-btn {
+    border-color: #f44336; /* Red border */
+    color: #f44336; /* Red text */
+}
+
+#reset-btn:hover {
+    background-color: #f44336; /* Red background on hover */
+    color: var(--button-text-color); /* White text on hover */
+}
+
 .form-container {
     display: flex;
     gap: 20px;
