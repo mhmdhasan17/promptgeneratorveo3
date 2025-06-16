@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veo 3 Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-title">Veo 3 Prompt Generator</h1>
+        <p class="subtitle">Dibuat oleh AI untuk Mahmud Hasan</p>
+
+        <div class="controls">
+            <button id="change-title-btn">Ubah Judul</button>
+            <button id="change-style-btn">Ubah Style</button>
+        </div>
+
+        <div class="form-container">
+            <div class="column">
+                <div class="input-group">
+                    <label for="judul">1. Judul Scene</label>
+                    <input type="text" id="judul" value="terminal bus malam">
+                </div>
+                <div class="input-group">
+                    <label for="karakter">2. Deskripsi Karakter Inti</label>
+                    <textarea id="karakter" rows="10">Seorang vlogger wanita muda asal Minang berusia 27 tahun.
+Perawakan/Bentuk Tubuh: tubuh mungil, tinggi 158cm, bentuk badan proporsional.
+Warna kulit: sawo matang cerah.
+Rambut: ikal sebahu, hitam kecokelatan, diikat setengah ke belakang.
+Wajah: wajah oval, alis tebal alami, mata hitam besar, senyum ramah, pipi merona, bibir natural dengan sentuhan lip tint.
+Pakaian: mengenakan jaket parasut warna kuning mustard dan celana panjang hitam, membawa ransel kecil.</textarea>
+                </div>
+                <div class="input-group">
+                    <label for="suara">3. Detail Suara Karakter</label>
+                    <textarea id="suara" rows="8">Dia berbicara dengan suara wanita muda yang hangat dan penuh semangat.
+Nada: mezzo-soprano.
+Timbre: bersahabat dan enerjik.
+Aksen/Logat: logat Indonesia dengan sentuhan khas Minang halus, berbicara murni dalam Bahasa Indonesia.
+Cara Berbicara: tempo sedang-cepat, gaya bicara lincah dan ekspresif.
+PENTING: Seluruh dialog harus dalam Bahasa Indonesia dengan pengucapan natural dan jelas. Pastikan suara karakter ini konsisten di seluruh video.</textarea>
+                </div>
+                 <div class="input-group">
+                    <label for="aksi">4. Aksi Karakter</label>
+                    <textarea id="aksi" rows="2">berjalan di sekitar terminal bus malam sambil melihat-lihat aktivitas penumpang dan pedagang.</textarea>
+                </div>
+                <div class="input-group">
+                    <label for="ekspresi">5. Ekspresi Karakter</label>
+                    <textarea id="ekspresi" rows="2">Karakter menunjukkan ekspresi kagum dan antusias, sering tersenyum sambil melirik kamera.</textarea>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-group">
+                    <label for="latar">6. Latar Tempat & Waktu</label>
+                    <textarea id="latar" rows="4">Latar tempat: di terminal bus antar kota malam hari, terdapat pedagang kaki lima di pinggir jalur keberangkatan, beberapa bus berjajar dengan lampu menyala.
+Waktu: malam hari, hujan rintik-rintik.</textarea>
+                </div>
+                <div class="input-group">
+                    <label for="visual">7. Detail Visual Tambahan</label>
+                     <div class="visual-sub-group">
+                        <label for="kamera">Gerakan Kamera:</label>
+                        <select id="kamera"></select>
+                        <label for="pencahayaan">Pencahayaan:</label>
+                        <input type="text" id="pencahayaan" value="natural dari lampu jalan dan lampu bus, pantulan cahaya pada aspal basah.">
+                        <label for="gaya">Gaya Video/Art Style:</label>
+                        <input type="text" id="gaya" value="cinematic realistis">
+                        <label for="kualitas">Kualitas Visual:</label>
+                        <input type="text" id="kualitas" value="Resolusi 4K">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="suasana">8. Suasana Keseluruhan</label>
+                    <textarea id="suasana" rows="2">Suasana sibuk, ramai, dengan kesan perjalanan malam yang hidup dan dinamis meskipun hujan.</textarea>
+                </div>
+                <div class="input-group">
+                    <label for="ambience">9. Suara Lingkungan/Ambience</label>
+                    <textarea id="ambience" rows="3">SOUND: suara mesin bus menyala, pengumuman dari pengeras suara, derai hujan ringan, dan percakapan samar antar penumpang dan pedagang.</textarea>
+                </div>
+                <div class="input-group">
+                    <label for="dialog">10. Dialog Karakter</label>
+                    <textarea id="dialog" rows="3">DIALOG dalam Bahasa Indonesia: Karakter berkata: "Tiap kota punya terminal kayak gini, dan aku suka banget suasana malamnya… hangat walau gerimis begini. Rasanya kayak perjalanan baru mau dimulai."</textarea>
+                </div>
+                <div class="input-group">
+                    <label for="negatif">11. Negative Prompt</label>
+                    <textarea id="negatif" rows="3">Hindari: teks di layar, subtitle, tulisan di video, font, logo, distorsi, artefak, anomali, wajah ganda, anggota badan cacat, tangan tidak normal, orang tambahan, objek mengganggu, kualitas rendah, buram, glitch, suara robotik, suara pecah.</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="generate-container">
+            <button id="generate-btn">Hasilkan Prompt</button>
+        </div>
+
+        <div class="output-container">
+            <div class="output-column">
+                <h2>Prompt (Bahasa Indonesia) - Bisa Diedit</h2>
+                <textarea id="output-id" class="output-box"></textarea>
+            </div>
+            <div class="output-column">
+                <h2>Final Prompt (English) - Final</h2>
+                <div id="output-en" class="output-box readonly"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
