@@ -321,7 +321,7 @@ function generatePrompt() {
     const kualitas = document.getElementById('kualitas').value;
     const suasana = document.getElementById('suasana').value;
     const ambience = document.getElementById('ambience').value;
-    const negatif = document.getElementById('negatif').value;
+    const negatif = "Hindari: teks di layar, subtitle, tulisan di video, font, logo, distorsi, artefak, anomali, wajah ganda, anggota badan cacat, tangan tidak normal, orang tambahan, objek mengganggu, kualitas rendah, buram, glitch, suara robotik, suara pecah.";
 
     let characterDescriptionsID = '[DESKRIPSI KARAKTER & AKSI]\n';
     let characterDescriptionsEN = '[CHARACTER DESCRIPTIONS & ACTIONS]\n';
@@ -453,7 +453,7 @@ function copyFinalPrompt() {
 
 function resetForm() {
     // Clear general inputs
-    const inputs = ['judul', 'latar', 'pencahayaan', 'kualitas', 'suasana', 'ambience', 'negatif'];
+    const inputs = ['judul', 'latar', 'pencahayaan', 'kualitas', 'suasana', 'ambience'];
     inputs.forEach(id => document.getElementById(id).value = '');
     
     // Reset selects
