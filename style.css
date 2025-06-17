@@ -303,6 +303,16 @@ textarea.output-box {
     transform: translateY(-50%) scale(0.95);
 }
 
+.readonly-box {
+    background-color: #202020; /* Slightly darker than input */
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #a0a0a0; /* Greyed out text */
+    border: 1px solid var(--input-border-color);
+    line-height: 1.5;
+}
+
 @media (max-width: 900px) {
     .form-container, .output-container {
         flex-direction: column;
