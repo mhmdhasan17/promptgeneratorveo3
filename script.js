@@ -217,6 +217,84 @@ PENTING: Seluruh dialog harus dalam Bahasa Indonesia dengan pengucapan natural d
         expr: `Karakter menunjukkan ekspresi kagum dan antusias, sering tersenyum sambil melirik kamera.`,
         dialog: `DIALOG dalam Bahasa Indonesia: Karakter berkata: "Tiap kota punya terminal kayak gini, dan aku suka banget suasana malamnya… hangat walau gerimis begini. Rasanya kayak perjalanan baru mau dimulai."`
     });
+
+    const elements = {
+        trigger: document.getElementById('asmr-trigger'),
+        object: document.getElementById('object'),
+        setting: document.getElementById('setting'),
+        style: document.getElementById('style'),
+        camera: document.getElementById('camera'),
+        generateBtn: document.getElementById('generate-btn'),
+        output: document.getElementById('prompt-output'),
+        copyBtn: document.getElementById('copy-btn'),
+    };
+
+    const options = {
+        triggers: [
+            "tapping kuku panjang", "berbisik lembut", "suara ketikan keyboard mekanikal", 
+            "menggores permukaan bertekstur", "suara kuas makeup menyentuh mikrofon", 
+            "membalik halaman buku", "suara cairan seperti menuang air", "suara crinkle dari plastik atau kertas"
+        ],
+        objects: [
+            "mikrofon binaural 3Dio", "mikrofon Blue Yeti", "balok kayu yang diukir", 
+            "pasir kinetik berwarna-warni", "mangkuk keramik berisi air", "buku tua dengan kertas tebal",
+            "keyboard mekanikal dengan keycaps custom"
+        ],
+        settings: [
+            "di dalam studio rekaman kedap suara", "di kamar tidur yang nyaman dengan cahaya temaram",
+            "di perpustakaan tua yang sepi", "di spa yang tenang dan mewah", "di meja kerja kayu yang rapi"
+        ],
+        styles: [
+            "gaya sinematik, 8K", "pencahayaan lembut dan hangat", "fokus lembut dengan latar belakang bokeh",
+            "pencahayaan natural dari jendela", "gaya moody dengan bayangan dramatis"
+        ],
+        cameras: [
+            "extreme close-up", "point of view (POV)", "top-down shot", 
+            "slow motion macro shot", "dolly shot pelan"
+        ]
+    };
+
+    const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+    const generatePrompt = () => {
+        const trigger = elements.trigger.value === 'random' ? getRandomElement(options.triggers) : elements.trigger.value;
+        const object = elements.object.value === 'random' ? getRandomElement(options.objects) : elements.object.value;
+        const setting = elements.setting.value === 'random' ? getRandomElement(options.settings) : elements.setting.value;
+        const style = elements.style.value === 'random' ? getRandomElement(options.styles) : elements.style.value;
+        const camera = elements.camera.value === 'random' ? getRandomElement(options.cameras) : elements.camera.value;
+        
+        const finalPrompt = `${style}, ${camera} shot of ${trigger} on a ${object}, ${setting}. High-fidelity binaural audio, hyperrealistic detail, sharp focus, professional color grading.`;
+        
+        elements.output.value = finalPrompt;
+    };
+
+    const copyToClipboard = () => {
+        if (!elements.output.value) return;
+
+        navigator.clipboard.writeText(elements.output.value)
+            .then(() => {
+                const originalIcon = elements.copyBtn.innerHTML;
+                elements.copyBtn.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                `;
+                elements.copyBtn.classList.add('copied');
+
+                setTimeout(() => {
+                    elements.copyBtn.innerHTML = originalIcon;
+                    elements.copyBtn.classList.remove('copied');
+                }, 2000);
+            })
+            .catch(err => {
+                console.error('Gagal menyalin teks: ', err);
+                alert('Gagal menyalin prompt.');
+            });
+    };
+
+    elements.generateBtn.addEventListener('click', generatePrompt);
+    elements.copyBtn.addEventListener('click', copyToClipboard);
+
+    // Generate prompt on initial load
+    generatePrompt();
 });
 
 function populateSelect(selectId, options) {
